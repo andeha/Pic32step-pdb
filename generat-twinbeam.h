@@ -31,8 +31,6 @@ typedef struct Bitfield Bitfield; typedef struct Bitfield Explained[];
 #define false 0
 #define true (! false)
 
-typedef int bool;
-
 #define UNICODES(x) ((char32̄_t *)(U##x))
 #define Ū(x) UNICODES(x)
 
@@ -45,7 +43,8 @@ EXT₋C int print(const char * utf8format, ...) ⓡ;
 
 typedef struct 𝒫 { union { signed char * s; signed char c; } value; int kind; } Argᴾ;
 
-EXT₋C Argᴾ ﹟s7(__builtin_int_t characters, signed char * keyput) ⓡ;
+EXT₋C Argᴾ ﹟s7(char * keyput) ⓡ;
+EXT₋C Argᴾ ﹟s7(__builtin_int_t characters, char * keyput) ⓡ;
 EXT₋C Argᴾ ﹟c7(signed char c) /* ⓡ */;
 
 #define 𝑓𝑙𝑢𝑐𝑡𝑢𝑎𝑛𝑡 __attribute__ ((__blocks__(byref)))
@@ -56,5 +55,8 @@ EXT₋C void Base𝕟(__builtin_uint_t ℕ, unsigned short base, unsigned short
 EXT₋C __builtin_int_t TetrasUntilZero(char32̄_t * ucs, __builtin_int_t maxtetras𝘖rZero);
 
 enum CastToNumericOpinion { NumericOpinionAccept, NumericOpinionReject, 
- NumericOpinionCommit, NumericOpinionQuit };
+ NumericOpinionCommit, NumericOpinionQuit, NumericOpinionCancel };
+
+#define max(x₁, x₂) ((x₁) < (x₂) ? (x₂) : (x₁))
+#define min(x₁, x₂) ((x₂) < (x₁) ? (x₂) : (x₁))
 
