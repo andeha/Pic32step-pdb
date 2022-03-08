@@ -1,4 +1,4 @@
-/*  generat-twinbeam.h | till stark radio. */
+/*  generat-twinbeam.h | radio. */
 
 #define inexorable static __attribute__ ((internal_linkage))
 typedef long long int __builtin_int_t;
@@ -63,7 +63,7 @@ EXT₋C __builtin_int_t TetrasUntilZero(char32̄_t * ucs, __builtin_int_t maxtet
  __builtin_va_start(__various,symbol);
 
 enum CastToNumericOpinion { NumericOpinionAccept, NumericOpinionReject, NumericOpinionNegate, 
- NumericOpinionCommit, /* NumericOpinionQuit, */ NumericOpinionCancel };
+ NumericOpinionCommit, NumericOpinionCancel };
 
 #define max(x₁, x₂) ((x₁) < (x₂) ? (x₂) : (x₁))
 #define min(x₁, x₂) ((x₂) < (x₁) ? (x₂) : (x₁))

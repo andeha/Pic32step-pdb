@@ -80,7 +80,7 @@ Utf8ToUnicode(char8₋t *ξ, __builtin_int_t bytes)
    if (248 <= first || (128 <= first && first < 192)) { return 0x0000ffff; }
    switch (bytes) {
    case 1: return (char32̄_t)first;
-   case 2: return (0b11111 & first)<<6 | (0x3d & *(ξ+1));
+   case 2: return (0b11111 & first)<<6 | (0x3f & *(ξ+1));
    case 3: return (0b1111 & first)<<12 | (0x3f & *(ξ+1))<<6 | (0x3f & *(ξ+2));
    case 4: return (0b111 & first)<<18 | (0x3f & *(ξ+1))<<12 | (0x3f & *(ξ+2))<<6 | (0x3f & *(ξ+3));
    }

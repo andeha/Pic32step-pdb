@@ -1,4 +1,4 @@
-#  build.ninja | building the pdb on the macos computer.
+#  build.ninja | building pdb on the macintosh computer.
 
 optflags = -g
 progname = pdb
