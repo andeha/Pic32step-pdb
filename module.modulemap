@@ -1,0 +1,11 @@
+/*  module.moulemap a․𝘬․a module | emot fullständig. */
+
+module litenbeam {
+  header "generat-twinbeam.h"
+  header "after-ten.hpp"
+  header "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+  header "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h"
+  header "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h"
+  header "ⓐ-regs.h"
+} /* ⬷ a․𝘬․a smallbeam and krimbeam. */
+
