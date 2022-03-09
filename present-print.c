@@ -20,7 +20,7 @@ print﹟(
     UnicodeToUtf8(uc, ^(char8₋t * u8s, short bytes) { out(u8s,(__builtin_int_t)bytes); }); };
    Utf8₋symbol utf8₋symbol = ^(char8₋t u8) { out(&u8,1); };
    Utf8₋sequence utf8₋sequence = ^(char8₋t * u8s) { char8₋t *p=u8s; 
-    while (*p) { out(p,1); } };
+    while (*p) { out(p,1); p+=1; } };
 again:
    leadOr8Bit = i + (char8₋t *)format;
    byte = *leadOr8Bit;
