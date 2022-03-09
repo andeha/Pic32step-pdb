@@ -78,7 +78,7 @@ Output(
       } };
     mfprint("⬚\n", ﹟s7(bright));
     EmitUnicodesUntil𝟶𝚡𝟶𝟶𝟶𝟶(ar->header);
-    mfprint("⬚ = %s 0x", ﹟s7(reset), ﹟s7(reverse));
+    mfprint("⬚ = ⬚ 0x", ﹟s7(reset), ﹟s7(reverse));
     Base𝕟((__builtin_uint_t)value, 16, 8, ^(char digits) { mfprint("⬚", ﹟c7(digits)); });
     mfprint("⬚\n\n", ﹟s7(reset));
     present(ar->regcnt, ar->regs, value, ar->init);
