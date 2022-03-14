@@ -1,0 +1,75 @@
+.TH PDB 1
+.SH NAME
+pdb \- Pic32mzda interactive loader and debugger
+.SH SYNOPSIS
+.B pdb
+[ \fB\-s\fR ]
+.IR
+file.hex
+.SH DESCRIPTION
+.I The
+.B
+pdb
+program interprets your commands and reports the state inside the Pic32 chip.
+.SH OPTIONS
+.TP
+.BR -s
+Debug using the MIPS/Pic32 software simulator instead of an USB-attached hardware.
+.SH COMMANDS
+.TP
+.BR init
+Initializes with the commands 'device', 'hwtool' and 'reset'.
+.TP
+.BR debug
+Prints the content of the MIPS Debug register.
+.TP
+.BR cause
+Prints the content of the MIPS Cause register.
+.TP
+.BR status
+Prints the content of the MIPS Status register.
+.TP
+.BR rcon
+Prints the content of the Pic32 rcon register.
+.TP
+.BR ifs
+Prints the content of the Pic32 ifs interrupt registers.
+.TP
+.BR iec
+Prints the content of the MIPS iec interrupt registers.
+.TP
+.BR rtccon
+Prints the content of the MIPS rtccon real-time clock register.
+.TP
+.BR setclk
+Sets the RTCC clock inside the Pic32 chip.
+.TP
+.BR t1con \- t9con
+Prints the content of the Pic32 timer registers.
+.TP
+.BR ic1con
+Prints the content of the Pic32 input capture register.
+.TP
+.BR oc1con
+Prints the content of the Pic32 output capture register.
+.TP
+.BR a \- k
+Prints the value and configuration of the Pic32 GPIO A to GPIO K registers.
+.TP
+.BR glcdmode
+Prints the content of the Pic32's graphic LCD glcdmode register.
+.TP
+.BR program\ \fB file.hex \fR
+Reflashes the chip.
+.SH ENVIRONMENT VARIABLES
+The pdb program recognizes the following enviroment variables:
+.TP
+.BR MDBPATH
+The path to Microchip mdb.sh or equivalent.
+.TP
+.BR PIC32DEVICE
+The connected Pic32 variant. Defaults to the string 'PIC32MZ2064DAB288'.
+.SH "SEE ALSO"
+.I
+PIC32MZ Graphics (DA) Family Data Sheet at the Microchip web site (DS60001361H).
+
