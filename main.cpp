@@ -22,10 +22,13 @@ struct {
  "/Applications/microchip/mplabx/v5.50/mplab_platform/bin/mdb.sh"
 };
 
-const char * hexfile=ΨΛΩ, *cmdfile=ΨΛΩ; bool hw=true;
+const char * hexfile=ΨΛΩ, *cmdfile=ΨΛΩ; int hw=true;
 
-char8₋t * stpcpy(char8₋t * dst, const char * src) { while ((*dst++ = *src++)) {
-} return --dst; }
+char8₋t * stpcpy(char8₋t * dst, const char * src) { 
+ while ((*dst++ = *src++)) { } return --dst; }
+/* after reading --<string.h> char * stpcpy(char * dst, const char * src) and 
+  --<stochast-symbol> Utf8ToUnicode you may view this function as superfluous. 
+ via the constant bytemark & bytemask. */
 
 inexorable Registerset Selected()
 {
