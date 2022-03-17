@@ -39,7 +39,7 @@ inexorable Registerset Selected()
 
 inexorable const char * Device()
 {
-   const char * device = defaults.device, *device₋env = getenv("PIC32DEVICE");
+   const char * device = defaults.device, *device₋env = getenv("PDBDEVICE");
    if (device₋env) device = device₋env;
    if (setenv("__PDB_CURRDEV",device,1)) {
      mfprint("pdb: environment error\n"); exit(1); }
