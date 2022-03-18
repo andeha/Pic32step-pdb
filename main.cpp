@@ -2,9 +2,9 @@
 
 import litenbeam;
 
-/* code below assumes 'stdout' and 'stderr'. */
-
-/* To compile enter 'prompt% ninja'. */
+/* Code below assumes 'stdout' and 'stderr'. To compile 
+ enter 'prompt% ninja'. Select register set with 
+ prompt> builtin typeset -gx PDBDEVICE=PIC32MM0064GPL036 */
 
 struct Prefix {
 const char * prefix;
@@ -22,7 +22,7 @@ struct {
  "/Applications/microchip/mplabx/v5.50/mplab_platform/bin/mdb.sh"
 };
 
-const char * hexfile=ΨΛΩ, *cmdfile=ΨΛΩ; int hw=true;
+const char * hexfile=ΨΛΩ, *cmdfile=ΨΛΩ, *selected₋device=ΨΛΩ; int hw=true;
 
 char8₋t * stpcpy(char8₋t * dst, const char * src) { 
  while ((*dst++ = *src++)) { } return --dst; }
@@ -30,23 +30,20 @@ char8₋t * stpcpy(char8₋t * dst, const char * src) {
   --<stochast-symbol> Utf8ToUnicode you may view this function as superfluous. 
  via the constant bytemark & bytemask. */
 
+inexorable void init₋selected₋device()
+{
+   selected₋device = defaults.device;
+   const char * device₋env = getenv("PDBDEVICE");
+   if (device₋env) selected₋device = device₋env;
+}
+
 inexorable Registerset Selected()
 {
   Registerset regset = defaults.registers;
-  const char * device = getenv("__PDB_CURRDEV");
-  if (device == ΨΛΩ) { mfprint("pdb: environment error\n"); }
-  if (IsPrefixOrEqual(device,"PIC32MZ")) { regset = Registerset::pic32mzda; }
-  if (IsPrefixOrEqual(device,"PIC32MM")) { regset = Registerset::pic32mm; }
+  if (selected₋device == ΨΛΩ) { mfprint("pdb: environment error\n"); }
+  if (IsPrefixOrEqual(selected₋device,"PIC32MZ")) { regset = Registerset::pic32mzda; }
+  if (IsPrefixOrEqual(selected₋device,"PIC32MM")) { regset = Registerset::pic32mm; }
   return regset;
-}
-
-inexorable const char * Device()
-{
-   const char * device = defaults.device, *device₋env = getenv("PDBDEVICE");
-   if (device₋env) device = device₋env;
-   if (setenv("__PDB_CURRDEV",device,1)) {
-     mfprint("pdb: environment error\n"); exit(1); }
-   return device;
 }
 
 inexorable
@@ -56,9 +53,9 @@ UserkeyedToMdb(
   char8₋t * mdb
 )
 {
-    if (IsPrefixOrEqual(pdb,"init")) { const char * device = Device(); 
-      mfprint("pdb: starts initing device ⬚\n", ﹟s7((char *)device));
-      char8₋t * end=stpcpy(mdb,"device "); end=stpcpy(end,device); 
+    if (IsPrefixOrEqual(pdb,"init")) { 
+      mfprint("pdb: starts initing device ⬚\n", ﹟s7((char *)selected₋device));
+      char8₋t * end=stpcpy(mdb,"device "); end=stpcpy(end,selected₋device); 
       end=stpcpy(end,"\n"); mfprint("pdb: selecting ⬚\n", 
       ﹟s7((char *)(hw ? "hardware target" : "software simulator")));
       if (hw) { end=stpcpy(end,"hwtool SK\n"); }
@@ -166,8 +163,8 @@ main(
 )
 { /* stdin=0 (mdb output), stdout=1 () and stderr=2 (output to user) */
     int status=0; int fd_p2c[2], fd_c2p[2]; int 🥈 maxline=4096; 
-    ⁺⁼ProcessCommandline(); const char * device = Device();
-    print("pdb (⬚), revision ⬚ (^-c to quit.)\n\n", ﹟s7((char *)device), ﹟s7((char *)SHA1GIT));
+    ⁺⁼ProcessCommandline(); init₋selected₋device();
+    print("pdb revision ⬚ (^-c to quit.)\n\n", ﹟s7((char *)SHA1GIT));
     if (pipe(fd_p2c) == -1 || pipe(fd_c2p) == -1) {
       mfprint("pdb: Error when pipe\n"); exit(1); }
     pid_t pid = fork();
